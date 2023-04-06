@@ -1,18 +1,29 @@
 import { SwapOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from './hooks';
+import { Button } from 'antd';
 
 function App() {
+	const { t, i18n } = useTranslation();
 	const { toggleTheme } = useTheme();
+
+	const handleSwitchLanguage = (lng: string) => {
+		i18n.changeLanguage(lng);
+	};
 
 	return (
 		<div className='w-screen h-screen bg-slate-200 dark:bg-primary'>
 			<h1 className='text-7xl font-extrabold text-center dark:text-highlight-dark'>
-				Lorem Ipsum
+				{t('Hello World')}
 			</h1>
 			<SwapOutlined
 				className='text-4xl block text-center dark:text-slate-200'
 				onClick={toggleTheme}
 			/>
+			<div className='text-center'>
+				<Button onClick={() => handleSwitchLanguage('vi')}>Tiếng Việt</Button>
+				<Button onClick={() => handleSwitchLanguage('en')}>English</Button>
+			</div>
 			<p className='m-auto p-8 dark:text-white'>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy text ever
