@@ -1,17 +1,14 @@
 import { ReactNode, createContext, useEffect } from 'react';
+import { ThemeContextType } from './type';
 
 const defaultTheme = 'light';
 const darkTheme = 'dark';
-
-export interface IThemeContext {
-	toggleTheme?: () => void;
-}
 
 // const initValue: IThemeContext = {
 // 	toggleTheme: () => {},
 // };
 
-export const ThemeContext = createContext<IThemeContext>({
+export const ThemeContext = createContext<ThemeContextType>({
 	toggleTheme: () => null,
 });
 
